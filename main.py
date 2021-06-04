@@ -16,11 +16,22 @@ tgraph = Client(
 )
 
 
-@tgraph.on_message(filters.command("start"))
-async def start(client, message):
-    await message.reply_text(
-        text=f"Hello {message.from_user.mention},\nI'm a telegram to telegra.ph image uploader bot by @umeshnamo",
-        disable_web_page_preview=True
+START_TEXT = """
+Hello {}, I am Telegraph Image uplod-bot or file to telegra.ph link uploader bot.
+
+Made by @umeshnamo
+"""
+HELP_TEXT = """
+- Just give me a Image
+- Then I will download it
+- I will then upload it to the telegra.ph link
+
+Made by @umeshnamo
+"""
+ABOUT_TEXT = """
+- **Bot :** `Telegraph Uploader`
+- **Creator :** [DHK BOSS](https://telegram.me/umeshnamo)
+- **Channel :** [DHK BOTS](https://telegram.me/DHKBots)
     )
 
 
