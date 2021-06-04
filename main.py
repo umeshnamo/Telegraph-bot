@@ -16,23 +16,7 @@ tgraph = Client(
 )
 
 
-START_TEXT = """
-Hello {}, I am Telegraph Image uplod-bot or file to telegra.ph link uploader bot.
 
-Made by @umeshnamo
-"""
-HELP_TEXT = """
-- Just give me a Image
-- Then I will download it
-- I will then upload it to the telegra.ph link
-
-Made by @umeshnamo
-"""
-ABOUT_TEXT = """
-- **Bot :** `Telegraph Uploader`
-- **Creator :** [DHK BOSS](https://telegram.me/umeshnamo)
-- **Channel :** [DHK BOTS](https://telegram.me/DHKBots)
-    )
 
 
 @tgraph.on_message(filters.photo)
