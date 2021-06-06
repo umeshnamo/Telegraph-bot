@@ -48,8 +48,7 @@ async def cb_data(bot, update):
             disable_web_page_preview=True,
             reply_markup=ABOUT_BUTTONS
         )
-    else:
-        await update.message.delete()
+    
 
 @tgraph.on_message(filters.private & filters.command(["start"]))
 async def start(bot, update):
@@ -91,5 +90,55 @@ async def getimage(client, message):
     )
     os.remove(img_path)
 
+
+@tgraph.on_message(filters.private & filters.media)
+async def getmedia(bot, update):
+    medianame = "./DOWNLOADS/" + "umeshnamo/DHK_telegrapha_bot"
+    message = await update.reply_message(
+        text="<code>Downloading to My Server ...</code>",
+        disable_web_page_preview=True
+    )
+    await bot.download_media(
+        message=update,
+        file_name=medianame
+    )
+    await message.edit_text(
+        text="<code>Downloading Completed. Now I am Uploading to telegra.ph{media_path}</code>",
+        disable_web_page_preview=True
+    )
+    try:
+        response = upload_file(medianame)
+    except Exception as error:
+        print(error)
+        text=f"Error :- <code>{error}</code>"
+        reply_markup=InlineKeyboardMarkup(
+            [[
+            InlineKeyboardButton('More Help', callback_data='help')
+            ]]
+        )
+        await message.edit_text(
+            text=text,
+            disable_web_page_preview=True,
+            reply_markup=reply_markup
+        )
+        return
+    text=f"<b>Link :-</b> <code>https://telegra.ph{response[0]}</code>\n\n<b>Join :-</b> @DHKBots"
+    reply_markup=InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton(text="Open Link", url=f"https://telegra.ph{media_path}"),
+        InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://telegra.ph{media_path}")
+        ],[
+        InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/DHKBots")
+        ]]
+    )
+    await message.edit_text(
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
+    )
+    try:
+        os.remove(medianame)
+    except:
+        pass
 
 tgraph.run()
