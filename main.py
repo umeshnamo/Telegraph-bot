@@ -28,18 +28,18 @@ START_BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton('About', callback_data='About'),
         ]]
     )
-
+ABOUT_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('Channel',url='https://telegram.me/DHKBots')
+        ]]
+    )
 @tgraph.on_message(filters.command("start"))
 async def start(client, message):
     await message.reply_text(
         text=f"Hello {message.from_user.mention},\nI'm a telegram to telegra.ph image uploader bot by @umeshnamo",
         disable_web_page_preview=True
     )
-ABOUT_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Channel',url='https://telegram.me/DHKBots')
-        ]]
-    )
+
 
 @tgraph.on_message(filters.photo)
 async def getimage(client, message):
