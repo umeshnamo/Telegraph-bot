@@ -22,6 +22,10 @@ Made by @DHKBots
 ABOUT_TEXT = """
 - **Bot :** `Telegraph Uploader`
 - **Channel :** [DHK BOTS]
+"""
+START_BUTTONS = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton('About', callback_data='About'),
 @tgraph.on_message(filters.command("start"))
 async def start(client, message):
     await message.reply_text(
