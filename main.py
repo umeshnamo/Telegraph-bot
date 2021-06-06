@@ -39,7 +39,7 @@ ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Channel',url='https://telegram.me/DHKBots')
         ]]
-
+    )
 
 @tgraph.on_message(filters.photo)
 async def getimage(client, message):
