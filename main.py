@@ -18,7 +18,7 @@ START_TEXT = """
 Hello {}, I am  media or file to telegra.ph link uploader bot.
 
 Made by @DHKBots
-
+"""
 ABOUT_TEXT = """
 - **Bot :** `Telegraph Uploader`
 - **Channel :** [DHK BOTS]
