@@ -17,6 +17,8 @@ tgraph = Client(
 START_TEXT = """
 Hello {}, I am  media or file to telegra.ph link uploader bot.
 
+Made by @DHKBots
+
 @tgraph.on_message(filters.command("start"))
 async def start(client, message):
     await message.reply_text(
