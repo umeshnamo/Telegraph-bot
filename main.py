@@ -33,6 +33,14 @@ ABOUT_BUTTONS = InlineKeyboardMarkup(
         InlineKeyboardButton('Channel',url='https://telegram.me/DHKBots')
         ]]
     )
+@tgraph.on_callback_query()
+async def cb_data(bot, update):
+    if update.data == "home":
+        await update.message.edit_text(
+            text=START_TEXT.format(update.from_user.mention),
+            disable_web_page_preview=True,
+            reply_markup=START_BUTTONS
+        )
 @tgraph.on_message(filters.command("start"))
 async def start(client, message):
     await message.reply_text(
