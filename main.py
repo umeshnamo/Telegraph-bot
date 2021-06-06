@@ -14,7 +14,8 @@ tgraph = Client(
     api_id=Credentials.API_ID,
     api_hash=Credentials.API_HASH
 )
-
+START_TEXT = """
+Hello {}, I am  media or file to telegra.ph link uploader bot.
 
 @tgraph.on_message(filters.command("start"))
 async def start(client, message):
