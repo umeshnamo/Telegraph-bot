@@ -51,11 +51,14 @@ async def cb_data(bot, update):
     else:
         await update.message.delete()
 
-@tgraph.on_message(filters.command("start"))
-async def start(client, message):
-    await message.reply_text(
-        text=f"Hello {message.from_user.mention},\nI'm a telegram to telegra.ph image uploader bot by @umeshnamo",
-        disable_web_page_preview=True
+@tgraph.on_message(filters.private & filters.command(["start"]))
+async def start(bot, update):
+    text = START_TEXT.format(update.from_user.mention)
+    reply_markup = START_BUTTONS
+    await update.reply_text(
+        text=text,
+        disable_web_page_preview=True,
+        reply_markup=reply_markup
     )
 
 
