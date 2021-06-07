@@ -91,20 +91,18 @@ async def getimage(client, message):
     os.remove(img_path)
 
 
-@tgraph.on_message(filters.private & filters.media)
-async def getmedia(bot, update):
-    medianame = "./DOWNLOADS/" + "umeshnamo/DHK_telegrapha_bot"
-    message = await update.reply_message(
-        text="<code>Downloading to My Server ...</code>",
-        disable_web_page_preview=True
-    )
-    await bot.download_media(
-        message=update,
-        file_name=medianame
-    )
-    await message.edit_text(
-        text="<code>Downloading Completed. Now I am Uploading to telegra.ph{media_path}</code>",
-        disable_web_page_preview=True
+@tgraph.on_message(filters.media)
+async def getmedia(client, message):
+    dwn = await message.reply_text("Downloading to my server...", True)
+    media_path = await message.download()
+    await dwn.edit_text("Uploading as telegra.ph link...")
+    try:
+        url_path = upload_file(media_path)[0]
+    except Exception as error:
+        await dwn.edit_text(f"Oops something went wrong\n{error}")
+        return
+    await dwn.edit_text(
+        text=f"<b>Link :-</b> <code>https://telegra.ph{url_path}</code>",
     )
     try:
         response = upload_file(medianame)
