@@ -89,7 +89,8 @@ async def getimage(client, message):
         )
     )
     os.remove(img_path)
-
+     
+    )
 
 @tgraph.on_message(filters.media)
 async def getmedia(client, message):
@@ -123,8 +124,8 @@ async def getmedia(client, message):
     text=f"<b>Link :-</b> <code>https://telegra.ph{response[0]}</code>\n\n<b>Join :-</b> @DHKBots"
     reply_markup=InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton(text="Open Link", url=f"https://telegra.ph{media_path}"),
-        InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://telegra.ph{media_path}")
+        InlineKeyboardButton(text="Open Link", url=f"https://telegra.ph{url_path}"),
+        InlineKeyboardButton(text="Share Link", url=f"https://telegram.me/share/url?url=https://telegra.ph{url_path}")
         ],[
         InlineKeyboardButton(text="Join Updates Channel", url="https://telegram.me/DHKBots")
         ]]
