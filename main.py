@@ -90,8 +90,7 @@ async def getimage(client, message):
     )
     os.remove(img_path)
      
-    )
-
+    
 @tgraph.on_message(filters.media)
 async def getmedia(client, message):
     dwn = await message.reply_text("Downloading to my server...", True)
