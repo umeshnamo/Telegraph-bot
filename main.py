@@ -15,9 +15,11 @@ tgraph = Client(
     api_hash=Credentials.API_HASH
 )
 START_TEXT = """
-Hello {}, I am  media or file to telegra.ph link uploader bot.
+Hello {}, ⬇️ ** I am Telegraph Uploader Bot**
 
-Made by @DHKBots
+`I Can Uploade telegra.ph . Just send me some Image , Video 'size 5MB below', and see magic.`
+
+**🙋 Maintained By:** ▷ @DHKBots 🤖
 """
 ABOUT_TEXT = """
 - **Bot :** `Telegraph Uploader`
